@@ -15,26 +15,36 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './routing/routing.module'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
-
+import { ChartsModule } from "ng2-charts"
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RoutingModule,
     FormsModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    ChartsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

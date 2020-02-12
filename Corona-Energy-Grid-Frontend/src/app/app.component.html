@@ -1,7 +1,13 @@
-<div id="app">
-  <div id="header">
-  <img src="">
-  <h1>{{title}}</h1>
-  </div>
-  <router-outlet></router-outlet>
-</div>
+<nav class="navbar">
+  <ul>
+    <li>
+      <a routerLink="/">
+        <fa-icon [icon]="home"></fa-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard">Dashboard</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
