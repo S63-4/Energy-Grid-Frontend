@@ -1,0 +1,120 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+                <mat-form-field class="example-full-width">
+                <input matInput 
+                type="text" 
+                placeholder="First name" 
+                [(ngModel)]="firstName" 
+                id="firstName" 
+                name="firstName"
+                [value]="firstName" 
+                required>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width">
+                <input matInput 
+                type="text" 
+                placeholder="Last name" 
+                [(ngModel)]="lastName" 
+                id="lastName" 
+                name="lastName"
+                [value]="lastName" 
+                required>
+                </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+              <input matInput 
+              type="number" 
+              placeholder="Client Number" 
+              [(ngModel)]="clientNr" 
+              id="clientNr" 
+              name="clientNr"
+              [value]="clientNr" 
+              required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <mat-form-field class="example-full-width">
+                <input matInput 
+                type="text" 
+                placeholder="Email address" 
+                [(ngModel)]="email" 
+                id="email" 
+                name="email"
+                [value]="email" 
+                required>
+                </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+              <input matInput 
+              type="password" 
+              placeholder="Password" 
+              [(ngModel)]="password" 
+              id="password" 
+              name="password"
+              [value]="password" 
+              required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                    <input matInput 
+                    type="text" 
+                    placeholder="Street" 
+                    [(ngModel)]="street" 
+                    id="street" 
+                    name="street"
+                    [value]="street" 
+                    required>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                    <input matInput 
+                    type="number" 
+                    placeholder="House number" 
+                    [(ngModel)]="houseNr" 
+                    id="houseNr" 
+                    name="houseNr"
+                    [value]="houseNr" 
+                    required>
+                </mat-form-field>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                    <input matInput 
+                    type="text" 
+                    placeholder="Zip code" 
+                    [(ngModel)]="zipCode" 
+                    id="zipCode" 
+                    name="zipCode"
+                    [value]="zipCode" 
+                    required>
+                </mat-form-field>
+              </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="register()">Register</button>
+    </mat-card-actions>
+  </mat-card>

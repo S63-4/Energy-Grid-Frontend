@@ -6,6 +6,6 @@ import { faHome } from "@fortawesome/free-solid-svg-icons"
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Corona-Energy-Grid-Frontend';
+  title = 'Corona Energy Grid';
   home = faHome;
 }
