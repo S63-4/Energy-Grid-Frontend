@@ -1,5 +1,13 @@
-<h2>Menu</h2>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
+<nav class="navbar">
+  <ul>
+    <li>
+      <a routerLink="/">
+        <fa-icon [icon]="home"></fa-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard">Dashboard</a>
+    </li>
+  </ul>
 </nav>
 <router-outlet></router-outlet>
