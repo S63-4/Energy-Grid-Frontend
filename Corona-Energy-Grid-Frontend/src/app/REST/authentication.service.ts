@@ -21,7 +21,7 @@ export class AuthenticationService {
   getLogin(clientnr: number, password: string): Observable<any> {
     // const URL = `${this.serverURL}/loginCode/${clientnr}`;
     // console.log(URL);
-    // return this.http.get<any>(URL)
+    // return this.http.get<any>(URL, clientnr, password, httpOptions)
     // .pipe(
     //   map(result=> { return result['LoginCodeExist'] as boolean }),
     //   catchError(this.handleError('getLogin', []))
@@ -37,7 +37,7 @@ export class AuthenticationService {
 
   /** POST: add a new user to the server */
   postRegister(user: user): Observable<any> {
-    const serverURL = this.serverURL + "/registerUser";
+    const serverURL = this.serverURL + "/UserController/new";
     return this.http.post<user>(serverURL, user, httpOptions).pipe(
       catchError(this.handleError<user>('registerUser'))
     );
