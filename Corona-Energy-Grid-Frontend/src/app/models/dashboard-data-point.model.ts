@@ -5,27 +5,27 @@ export class DashboardModel {
             data = null
         } = obj;
         this.data = data;
-    } 
+    }
 }
 export class DashboardDataPoint {
-    Consumption: number;
-    Production: number;
-    Label: string;
+    consumption: number;
+    production: number;
+    label: string;
     constructor(obj: DashboardDataPointData = {} as DashboardDataPoint) {
         const {
-            Consumption = 0,
-            Production = 0,
-            Label = null
+            consumption = 0,
+            production = 0,
+            label = null
         } = obj
-        this.Consumption = Consumption;
-        this.Label = Label;
-        this.Production = Production;
+        this.consumption = consumption;
+        this.label = label;
+        this.production = production;
     }
 }
 interface DashboardDataPointData {
-    Consumption: number;
-    Production: number;
-    Label: string;
+    consumption: number;
+    production: number;
+    label: string;
 }
 interface DashboardModelData {
     data: Array<DashboardDataPoint>;
