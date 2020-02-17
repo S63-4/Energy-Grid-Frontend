@@ -9,16 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  firstName: string;
-  lastName: string;
-  clientNr: number;
+  
+  customerCode: number;
   email: string;
   password: string;
-  street: string;
-  houseNr: number;
-  zipCode: string;
 
   newuser: user;
+
+  passwordConfirm: string;
+  result: string;
 
   constructor(private router: Router,
     private authenticationService: AuthenticationService) { }
@@ -27,8 +26,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
-      this.newuser = new user(this.firstName, this.lastName, this.clientNr, this.email, this.password, this.street, this.houseNr, this.zipCode);
-      this.authenticationService.postRegister(this.newuser);
-      this.router.navigate(['dashboard']);
+      this.newuser = new user(this.customerCode, this.email, this.password);
+      if (this.password == this.passwordConfirm){
+        this.authenticationService.postRegister(this.newuser).subscribe(
+          result=> {
+            if (result == 'saved'){
+              this.router.navigate(['dashboard']);
+            }
+          }
+        );
+      } else {
+        alert("Make sure passwords match.");
+      }
   }
 }

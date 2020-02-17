@@ -7,40 +7,14 @@
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
-                <mat-form-field class="example-full-width">
-                <input matInput 
-                type="text" 
-                placeholder="First name" 
-                [(ngModel)]="firstName" 
-                id="firstName" 
-                name="firstName"
-                [value]="firstName" 
-                required>
-                </mat-form-field>
-            </td>
-            <td>
-                <mat-form-field class="example-full-width">
-                <input matInput 
-                type="text" 
-                placeholder="Last name" 
-                [(ngModel)]="lastName" 
-                id="lastName" 
-                name="lastName"
-                [value]="lastName" 
-                required>
-                </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <mat-form-field class="example-full-width">
               <input matInput 
-              type="number" 
+              type="text" 
               placeholder="Client Number" 
-              [(ngModel)]="clientNr" 
-              id="clientNr" 
-              name="clientNr"
-              [value]="clientNr" 
+              [(ngModel)]="customerCode" 
+              id="customerCode" 
+              name="customerCode"
+              [value]="customerCode" 
               required>
               </mat-form-field>
             </td>
@@ -58,6 +32,8 @@
                 required>
                 </mat-form-field>
             </td>
+          </tr>
+          <tr>
             <td>
               <mat-form-field class="example-full-width">
               <input matInput 
@@ -70,46 +46,18 @@
               required>
               </mat-form-field>
             </td>
-          </tr>
-          <tr>
-              <td>
-                <mat-form-field class="example-full-width">
-                    <input matInput 
-                    type="text" 
-                    placeholder="Street" 
-                    [(ngModel)]="street" 
-                    id="street" 
-                    name="street"
-                    [value]="street" 
-                    required>
-                </mat-form-field>
-              </td>
-              <td>
-                <mat-form-field class="example-full-width">
-                    <input matInput 
-                    type="number" 
-                    placeholder="House number" 
-                    [(ngModel)]="houseNr" 
-                    id="houseNr" 
-                    name="houseNr"
-                    [value]="houseNr" 
-                    required>
-                </mat-form-field>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                <mat-form-field class="example-full-width">
-                    <input matInput 
-                    type="text" 
-                    placeholder="Zip code" 
-                    [(ngModel)]="zipCode" 
-                    id="zipCode" 
-                    name="zipCode"
-                    [value]="zipCode" 
-                    required>
-                </mat-form-field>
-              </td>
+            <td>
+              <mat-form-field class="example-full-width">
+              <input matInput 
+              type="password" 
+              placeholder="Confirmation password" 
+              [(ngModel)]="passwordConfirm" 
+              id="passwordConfirm" 
+              name="passwordConfirm"
+              [value]="passwordConfirm" 
+              required>
+              </mat-form-field>
+            </td>
           </tr>
         </table>
       </form>

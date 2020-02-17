@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private serverURL= 'http://localhost:port/'; //URL to rest server
+  private serverURL= 'http://localhost:9000/'; //URL to rest server
 
   constructor(
     private http: HttpClient) { }
@@ -37,9 +37,10 @@ export class AuthenticationService {
 
   /** POST: add a new user to the server */
   postRegister(user: user): Observable<any> {
-    const serverURL = this.serverURL + "/UserController/new";
+    const serverURL = this.serverURL + "UserController/registration";
     return this.http.post<user>(serverURL, user, httpOptions).pipe(
-      catchError(this.handleError<user>('registerUser'))
+      map(result=> { return result as unknown as string }),
+      catchError(this.handleError<any>('postRegister'))
     );
   }
 
@@ -52,8 +53,10 @@ export class AuthenticationService {
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      // Let the user know how to register properly
+      console.log(error);
+      alert(error["error"]["text"]);
+      
   
       // Let the app keep running by returning an empty result.
       return of(result as T);
