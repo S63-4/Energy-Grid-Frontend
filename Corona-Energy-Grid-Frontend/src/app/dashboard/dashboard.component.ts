@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
   updateCharts(period) {
     this.chartData = [];
     this.labels = [];
-    this.http.get(AppConfig.ApiBaseURL + `/UserController/getStatus?id=7&statusPeriod=${period}&currentDate=${new Date().getTime()}`).subscribe((data: Array<DashboardDataPoint>) => {
+    this.http.get(AppConfig.ApiBaseURL + `${AppConfig.ApiUrls.GETSTATUSFORPERIOD}?id=7&statusPeriod=${period}&currentDate=${new Date().getTime()}`).subscribe((data: Array<DashboardDataPoint>) => {
       let consumption: ChartModel = new ChartModel("Consumptie");
       consumption.backgroundColor = 'rgba(255,0,0, 0.8)';
       let production: ChartModel = new ChartModel("Productie");
