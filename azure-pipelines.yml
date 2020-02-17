@@ -17,9 +17,6 @@ steps:
 
 - script: |
     cd Corona-Energy-Grid-Frontend
-    ls
-  displayName: 'cd into right folder'
-- script: |
     npm install -g @angular/cli
     npm install
     ng update --all --force
