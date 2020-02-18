@@ -17,13 +17,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 import { ChartsModule } from "ng2-charts"
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import { TextinputComponent } from './custom-components/textinput/textinput.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    MyprofileComponent,
+    TextinputComponent
   ],
   imports: [
     BrowserModule,
