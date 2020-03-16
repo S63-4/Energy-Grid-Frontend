@@ -1,5 +1,3 @@
-import { first } from 'rxjs/operators';
-
 export class MyProfile {
     constructor(obj: MyProfileData = {} as MyProfile) {
         const {

@@ -9,6 +9,7 @@ export class TextinputComponent implements OnInit {
   @Input() label: string;
   @Input() placeholder: string;
   @Input() disabled: boolean;
+  @Input() value: string;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,13 +1,35 @@
 <div class="profile-container">
-
-    <h2>Adresgegevens</h2>
-    <textinput [disabled]="true" [label]="'Straat'"></textinput>
-    <textinput [disabled]="true" [label]="'Huisnummer'"></textinput>
-    <textinput [disabled]="true" [label]="'Postcode'"></textinput>
-    <textinput [disabled]="true" [label]="'Woonplaats'"></textinput>
-    <h2>Contactgegevens</h2>
-    <textinput [disabled]="true" [label]="'Klantnummer'"></textinput>
-    <textinput [label]="'E-mailadres'"></textinput>
-    <textinput [label]="'Mobiel telefoonnummer'"></textinput>
-    <textinput [label]="'Telefoonnummer'"></textinput>
+  <h2>Adresgegevens</h2>
+  <textinput
+    [value]="model.street"
+    [disabled]="true"
+    [label]="'Straat'"
+  ></textinput>
+  <textinput
+    [value]="model.houseNumber"
+    [disabled]="true"
+    [label]="'Huisnummer'"
+  ></textinput>
+  <textinput
+    [value]="model.zipCode"
+    [disabled]="true"
+    [label]="'Postcode'"
+  ></textinput>
+  <textinput
+    [value]="model.city"
+    [disabled]="true"
+    [label]="'Woonplaats'"
+  ></textinput>
+  <h2>Contactgegevens</h2>
+  <textinput
+    [value]="model.customerCode"
+    [disabled]="true"
+    [label]="'Klantnummer'"
+  ></textinput>
+  <textinput [value]="model.email" [label]="'E-mailadres'"></textinput>
+  <textinput
+    [value]="model.mobileNumber"
+    [label]="'Mobiel telefoonnummer'"
+  ></textinput>
+  <textinput [value]="model.phoneNumber" [label]="'Telefoonnummer'"></textinput>
 </div>
