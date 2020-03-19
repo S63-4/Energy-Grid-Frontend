@@ -1,6 +1,17 @@
 <div class="profile-container" *ngIf="model">
   <h2>Adresgegevens</h2>
   <textinput
+  [value]="model.firstName"
+  [disabled]="true"
+  [label]="'Voornaam'"
+  ></textinput>
+  <textinput
+  [value]="model.lastName"
+  [disabled]="true"
+  [label]="'Achternaam'"
+  ></textinput>
+  
+  <textinput
     [value]="model.street"
     [disabled]="true"
     [label]="'Straat'"

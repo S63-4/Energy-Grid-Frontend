@@ -38,7 +38,7 @@ export class MyProfile {
 
 
 
-interface MyProfileData {
+export interface MyProfileData {
     firstName: string;
     lastName: string;
     email: string;
