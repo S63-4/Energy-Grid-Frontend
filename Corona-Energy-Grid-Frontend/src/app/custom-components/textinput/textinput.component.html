@@ -1,0 +1,6 @@
+<div class="textinputcontainer">
+    <span *ngIf="label" class="label">
+        {{label}}
+    </span>
+    <input placeholder="{{placeholder}}" readonly="{{disabled}}" type="text" [ngModel]="value"/>
+</div>
