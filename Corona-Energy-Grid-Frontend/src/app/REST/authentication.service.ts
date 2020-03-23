@@ -40,10 +40,17 @@ export class AuthenticationService {
   public loggedIn(): BehaviorSubject<boolean> {
     return this.isLoggedIn;
   }
+
+  //* Get authorization token */
+  public getAuthorizationToken(): string {
+    return localStorage.getItem(AppConfig.LocalStorageKeys.TOKEN);
+  }
+
   //* Logout */
   public logOut(): void {
     this.isLoggedIn.next(false);
   }
+
   /** POST: add a new user to the server */
   postRegister(user: user): Observable<any> {
     const serverURL = this.serverURL + "UserController/registration";
