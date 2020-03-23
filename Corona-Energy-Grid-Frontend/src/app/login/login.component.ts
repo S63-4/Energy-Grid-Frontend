@@ -1,42 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
-import { SharedDataService } from '../localdata/shared-data.service';
-import { AuthenticationService } from '../REST/authentication.service';
+import { SharedDataService } from "../localdata/shared-data.service";
+import { AuthenticationService } from "../REST/authentication.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  clientNr: number;
+  clientNr: string;
   password: string;
   loginResult: boolean;
 
-  constructor(private router: Router,
-    private authenticationService: AuthenticationService,
-    private data: SharedDataService) {
-  }
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   login(): void {
-    this.authenticationService.getLogin(this.clientNr, this.password)
-      .subscribe(result => {
-        console.log(result);
-        result.headers.get('Authorization');
-        console.log(result.header.get('Authorization'));
-        this.router.navigate(['dashboard']);
-        this.data.changeAuth(result);
-      },
-        error => {
-          console.error(error)
-        });
+    this.authenticationService.getLogin(this.clientNr, this.password);
   }
 
   register(): void {
-    this.router.navigate(['register']);
+    this.router.navigate(["register"]);
   }
 }

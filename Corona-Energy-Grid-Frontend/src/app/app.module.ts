@@ -20,6 +20,7 @@ import { ChartsModule } from "ng2-charts";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { TextinputComponent } from './custom-components/textinput/textinput.component';
+import { Authentication } from './app-routing-guards';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,7 @@ import { TextinputComponent } from './custom-components/textinput/textinput.comp
     ChartsModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [Authentication],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
