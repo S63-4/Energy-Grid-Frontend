@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList, Renderer2 } from '@angular/core';
 import { DashboardDataPoint } from '../models/dashboard-data-point.model';
 import { Chart } from 'chart.js';
+import { HttpClient } from '@angular/common/http';
+import { AppConfig } from '../app.config';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,44 +18,14 @@ export class DashboardComponent implements OnInit {
   };
   chartData: ChartModel[] = [];
   labels: string[] = [];
+  chart: Chart;
+  //Filter
+  selectedFilter: number = StatusPeriod.THREEMONTHS;
 
-  // Filter
-  selectedFilter = 2;
 
-
-  constructor(private renderer: Renderer2) { }
+  constructor(private http: HttpClient) { }
   ngOnInit(): void {
-    const obj = { Consumption: 320.4, Production: 224.4, Label: 'Januari' };
-    const obj2 = { Consumption: 420.4, Production: 94.4, Label: 'Februari' };
-    const data = [new DashboardDataPoint(obj), new DashboardDataPoint(obj2)];
-    const consumption: ChartModel = new ChartModel('Consumptie');
-    consumption.backgroundColor = 'rgba(255,0,0, 0.8)';
-    const production: ChartModel = new ChartModel('Productie');
-    production.backgroundColor = 'rgba(0, 255, 0, 0.8)';
-    data.forEach(datapoint => {
-      consumption.data.push(datapoint.Consumption);
-      production.data.push(datapoint.Production);
-      this.labels.push(datapoint.Label);
-    });
-    this.chartData.push(consumption, production);
-    const dashboard = document.getElementById('chart') as HTMLCanvasElement;
-    new Chart(dashboard, {
-      type: 'bar',
-      data: {
-        labels: this.labels,
-        datasets: this.chartData,
-      },
-      options: {
-        responsive: false,
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
+    this.updateCharts(StatusPeriod.THREEMONTHS);
   }
 
   onChartClick(event) {
@@ -66,7 +38,43 @@ export class DashboardComponent implements OnInit {
 
 
   updateCharts(period) {
+    this.chartData = [];
+    this.labels = [];
+    this.http.get(AppConfig.ApiBaseURL + `${AppConfig.ApiUrls.GETSTATUSFORPERIOD}?statusPeriod=${period}&currentDate=${new Date().getTime()}`).subscribe((data: Array<DashboardDataPoint>) => {
+      let consumption: ChartModel = new ChartModel("Consumptie");
+      consumption.backgroundColor = 'rgba(255,0,0, 0.8)';
+      let production: ChartModel = new ChartModel("Productie");
+      production.backgroundColor = 'rgba(0, 255, 0, 0.8)';
+      data.forEach(datapoint => {
+        consumption.data.push(datapoint.consumption);
+        production.data.push(datapoint.production);
+        this.labels.push(datapoint.label);
+      });
+      this.chartData.push(consumption, production);
+      if (this.chart)
+        this.chart.destroy();
 
+      let dashboard = document.getElementById("chart") as HTMLCanvasElement;
+      const context = dashboard.getContext('2d');
+      context.clearRect(0, 0, dashboard.width, dashboard.height);
+      this.chart = new Chart(dashboard, {
+        type: "bar",
+        data: {
+          labels: this.labels,
+          datasets: this.chartData,
+        },
+        options: {
+          responsive: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      })
+    });
   }
 }
 class ChartModel {
@@ -78,8 +86,8 @@ class ChartModel {
   }
 }
 enum StatusPeriod {
-  YEAR = 1,
-  THREEMONTHS = 2,
-  MONTH = 3,
-  WEEK = 4
+  YEAR,
+  THREEMONTHS,
+  MONTH,
+  WEEK
 }
