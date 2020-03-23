@@ -5,7 +5,7 @@ export class DashboardModel {
             data = null
         } = obj;
         this.data = data;
-    } 
+    }
 }
 export class DashboardDataPoint {
     Consumption: number;
@@ -16,7 +16,7 @@ export class DashboardDataPoint {
             Consumption = 0,
             Production = 0,
             Label = null
-        } = obj
+        } = obj;
         this.Consumption = Consumption;
         this.Label = Label;
         this.Production = Production;

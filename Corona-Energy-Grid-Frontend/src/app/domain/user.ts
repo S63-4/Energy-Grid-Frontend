@@ -8,7 +8,7 @@ export class user {
     houseNr: number;
     zipCode: string;
 
-    constructor(customerCode, email, password){
+    constructor(customerCode, email, password) {
         this.customerCode = customerCode;
         this.email = email;
         this.password = password;

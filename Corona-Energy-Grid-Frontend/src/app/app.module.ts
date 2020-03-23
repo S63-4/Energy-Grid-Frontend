@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 
 import { ChartsModule } from "ng2-charts"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,

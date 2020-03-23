@@ -10,25 +10,25 @@ import { Chart } from 'chart.js';
 })
 export class DashboardComponent implements OnInit {
 
-  //Charts
+  // Charts
   chartOptions = {
     responsive: false
-  }
+  };
   chartData: ChartModel[] = [];
   labels: string[] = [];
 
-  //Filter
-  selectedFilter: number = 2;
+  // Filter
+  selectedFilter = 2;
 
 
   constructor(private renderer: Renderer2) { }
   ngOnInit(): void {
-    let obj = { Consumption: 320.4, Production: 224.4, Label: "Januari" }
-    let obj2 = { Consumption: 420.4, Production: 94.4, Label: "Februari" }
-    let data = [new DashboardDataPoint(obj), new DashboardDataPoint(obj2)];
-    let consumption: ChartModel = new ChartModel("Consumptie");
+    const obj = { Consumption: 320.4, Production: 224.4, Label: 'Januari' };
+    const obj2 = { Consumption: 420.4, Production: 94.4, Label: 'Februari' };
+    const data = [new DashboardDataPoint(obj), new DashboardDataPoint(obj2)];
+    const consumption: ChartModel = new ChartModel('Consumptie');
     consumption.backgroundColor = 'rgba(255,0,0, 0.8)';
-    let production: ChartModel = new ChartModel("Productie");
+    const production: ChartModel = new ChartModel('Productie');
     production.backgroundColor = 'rgba(0, 255, 0, 0.8)';
     data.forEach(datapoint => {
       consumption.data.push(datapoint.Consumption);
@@ -36,9 +36,9 @@ export class DashboardComponent implements OnInit {
       this.labels.push(datapoint.Label);
     });
     this.chartData.push(consumption, production);
-    let dashboard = document.getElementById("chart") as HTMLCanvasElement;
+    const dashboard = document.getElementById('chart') as HTMLCanvasElement;
     new Chart(dashboard, {
-      type: "bar",
+      type: 'bar',
       data: {
         labels: this.labels,
         datasets: this.chartData,
@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
           }]
         }
       }
-    })
+    });
   }
 
   onChartClick(event) {

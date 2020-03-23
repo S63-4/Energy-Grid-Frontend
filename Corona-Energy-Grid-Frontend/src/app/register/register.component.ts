@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  
+
   customerCode: number;
   email: string;
   password: string;
@@ -20,23 +20,23 @@ export class RegisterComponent implements OnInit {
   result: string;
 
   constructor(private router: Router,
-    private authenticationService: AuthenticationService) { }
+              private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   register(): void {
       this.newuser = new user(this.customerCode, this.email, this.password);
-      if (this.password == this.passwordConfirm){
+      if (this.password === this.passwordConfirm) {
         this.authenticationService.postRegister(this.newuser).subscribe(
-          result=> {
-            if (result == 'saved'){
+          result => {
+            if (result === 'saved') {
               this.router.navigate(['dashboard']);
             }
           }
         );
       } else {
-        alert("Make sure passwords match.");
+        alert('Make sure passwords match.');
       }
   }
 }
