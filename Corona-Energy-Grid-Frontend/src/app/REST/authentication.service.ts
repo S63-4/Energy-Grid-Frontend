@@ -9,13 +9,12 @@ import { AppConfig } from "../app.config";
   providedIn: "root"
 })
 export class AuthenticationService {
-  private serverURL = "http://localhost:9000"; // URL to rest server
   private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor(private http: HttpClient) {}
 
   /** GET login codes from the server */
   getLogin(clientnr: string, password: string) {
-    const URL = `${this.serverURL}/login`;
+    const URL = `${AppConfig.ApiBaseURL}/login`;
     this.http
       .post<HttpResponse<any>>(
         URL,
@@ -53,7 +52,7 @@ export class AuthenticationService {
 
   /** POST: add a new user to the server */
   postRegister(user: user): Observable<any> {
-    const serverURL = this.serverURL + "UserController/registration";
+    const serverURL = AppConfig.ApiBaseURL + "UserController/registration";
     return this.http.post<user>(serverURL, user).pipe(
       map(result => (result as unknown) as string),
       catchError(this.handleError<any>("postRegistert"))
