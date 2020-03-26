@@ -11,8 +11,7 @@ export class SharedDataService {
 
   constructor() { }
 
-  changeAuth(login: boolean){
+  changeAuth(login: boolean) {
     this.authSource.next(login);
   }
-
 }

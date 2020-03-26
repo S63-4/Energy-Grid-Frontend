@@ -12,10 +12,10 @@ import { AppConfig } from '../app.config';
 })
 export class DashboardComponent implements OnInit {
 
-  //Charts
+  // Charts
   chartOptions = {
     responsive: false
-  }
+  };
   chartData: ChartModel[] = [];
   labels: string[] = [];
   chart: Chart;
