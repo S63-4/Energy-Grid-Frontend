@@ -1,10 +1,11 @@
 export class AppConfig {
-    static ApiBaseURL = "http://localhost:9000";
+  static ApiBaseURL = "http://localhost:8762";
 
-
-
-    static ApiUrls = {
-        GETSTATUSFORPERIOD: "/status/getStatusForPeriod",
-        GETUSERPROFILE: "/UserController/profile"
-    }
+  static LocalStorageKeys = {
+    TOKEN: "token"
+  };
+  static ApiUrls = {
+    GETSTATUSFORPERIOD: "/status/getStatusForPeriod",
+    GETUSERPROFILE: "/UserController/profile"
+  };
 }

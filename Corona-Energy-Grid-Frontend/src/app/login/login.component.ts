@@ -1,42 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
-import { SharedDataService } from '../localdata/shared-data.service';
-import { AuthenticationService } from '../REST/authentication.service';
+import { SharedDataService } from "../localdata/shared-data.service";
+import { AuthenticationService } from "../REST/authentication.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  clientNr: number;
+  clientNr: string;
   password: string;
   loginResult: boolean;
 
-  constructor(private router: Router,
-    private authenticationService: AuthenticationService,
-    private data: SharedDataService) {
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {}
+
+  ngOnInit(): void {}
+
+  login(): void {
+    this.authenticationService.getLogin(this.clientNr, this.password);
   }
 
-  ngOnInit(): void {
-  }
-    
-  login() : void {
-    this.authenticationService.getLogin(this.clientNr, this.password)
-        .subscribe(loginResult => {
-          this.loginResult = loginResult;
-          if(loginResult == true){
-            this.router.navigate(['dashboard']);
-            this.data.changeAuth(loginResult);
-            console.log(loginResult);
-          } else {
-            alert("Invalid credentials");
-          }
-        });
-  }
-
-  register() : void {
-    this.router.navigate(['register']);
+  register(): void {
+    this.router.navigate(["register"]);
   }
 }

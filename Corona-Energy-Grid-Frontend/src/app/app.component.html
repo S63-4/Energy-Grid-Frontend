@@ -5,12 +5,15 @@
         <fa-icon [icon]="home"></fa-icon>
       </a>
     </li>
-    <li>
-      <a routerLink="/dashboard">Dashboard</a>
-    </li>
-    <li>
-      <a routerLink="/myprofile">Mijn Profiel</a>
-    </li>
+    <ng-container *ngIf="loggedIn === true">
+
+      <li>
+        <a routerLink="/dashboard">Dashboard</a>
+      </li>
+      <li>
+        <a routerLink="/myprofile">Mijn Profiel</a>
+      </li>
+    </ng-container>
   </ul>
 </nav>
 <router-outlet></router-outlet>
