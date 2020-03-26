@@ -4,7 +4,7 @@ export class AppConfig {
 
 
     static ApiUrls = {
-        GETSTATUSFORPERIOD: "/status/getStatusForPeriod",
+        GETSTATUSFORPERIOD: "/status/status/getStatusForPeriod",
         GETUSERPROFILE: "/UserController/profile"
     }
 }
