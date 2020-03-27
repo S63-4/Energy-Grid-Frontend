@@ -1,46 +1,35 @@
-<mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form class="example-form">
-        <table class="example-full-width" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-              <input matInput 
-              type="text" 
-              placeholder="Client Number" 
-              [(ngModel)]="clientNr" 
-              id="clientNr" 
-              name="clientNr"
-              [value]="clientNr" 
-              required>
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-              <input matInput 
-              type="password" 
-              placeholder="Password" 
-              [(ngModel)]="password" 
-              id="password" 
-              name="password"
-              [value]="password" 
-              required>
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-      </form>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="login()">Login</button>
-    </mat-card-actions>
-    <p>Don't have an account yet? Click here to register.</p>
-    <mat-card-actions>
-      <button mat-raised-button (click)="register()">Register</button>
-    </mat-card-actions>
-  </mat-card>
+<div class="login-container">
+  <div class="header">
+    <p class="logintext">Login</p>
+  </div>
+
+  <div class="form">
+    <form class="example-form">
+      <input
+        type="text"
+        placeholder="Customernumber"
+        [(ngModel)]="clientNr"
+        id="clientNr"
+        name="clientNr"
+        [value]="clientNr"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+        id="password"
+        name="password"
+        [value]="password"
+        required
+      />
+    </form>
+  </div>
+
+  <button class="login-button" (click)="login()">Login</button>
+
+  <p class="registertext">
+    Don't have an account yet? Click
+    <a (click)="register()" class="here">here</a> to register.
+  </p>
+</div>
