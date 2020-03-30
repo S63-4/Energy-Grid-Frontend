@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-
-import { SharedDataService } from "../localdata/shared-data.service";
 import { AuthenticationService } from "../REST/authentication.service";
 
 @Component({
