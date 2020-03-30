@@ -6,12 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SharedDataService {
 
-  private authSource = new BehaviorSubject(false);
+  private authSource = new BehaviorSubject('');
   authBoolean = this.authSource.asObservable();
 
   constructor() { }
 
-  changeAuth(login: boolean) {
+  changeAuth(login: string) {
     this.authSource.next(login);
   }
 }
