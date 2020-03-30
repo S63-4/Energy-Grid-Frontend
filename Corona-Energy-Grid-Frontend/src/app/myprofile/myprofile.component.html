@@ -1,46 +1,62 @@
 <div class="profile-container" *ngIf="model">
-  <h2>Adresgegevens</h2>
-  <textinput
-  [value]="model.firstName"
-  [disabled]="true"
-  [label]="'Voornaam'"
-  ></textinput>
-  <textinput
-  [value]="model.lastName"
-  [disabled]="true"
-  [label]="'Achternaam'"
-  ></textinput>
-  
-  <textinput
-    [value]="model.street"
-    [disabled]="true"
-    [label]="'Straat'"
-  ></textinput>
-  <textinput
-    [value]="model.houseNumber"
-    [disabled]="true"
-    [label]="'Huisnummer'"
-  ></textinput>
-  <textinput
-    [value]="model.zipCode"
-    [disabled]="true"
-    [label]="'Postcode'"
-  ></textinput>
-  <textinput
-    [value]="model.city"
-    [disabled]="true"
-    [label]="'Woonplaats'"
-  ></textinput>
-  <h2>Contactgegevens</h2>
-  <textinput
-    [value]="model.customerCode"
-    [disabled]="true"
-    [label]="'Klantnummer'"
-  ></textinput>
-  <textinput [value]="model.email" [label]="'E-mailadres'"></textinput>
-  <textinput
-    [value]="model.mobileNumber"
-    [label]="'Mobiel telefoonnummer'"
-  ></textinput>
-  <textinput [value]="model.phoneNumber" [label]="'Telefoonnummer'"></textinput>
+  <div class="gegevens">
+    <h2>Adresgegevens</h2>
+    <textinput
+      [value]="model.firstName"
+      [disabled]="true"
+      [label]="'Voornaam'"
+    ></textinput>
+    <textinput
+      [value]="model.lastName"
+      [disabled]="true"
+      [label]="'Achternaam'"
+    ></textinput>
+
+    <textinput
+      [value]="model.street"
+      [disabled]="true"
+      [label]="'Straat'"
+    ></textinput>
+    <textinput
+      [value]="model.houseNumber"
+      [disabled]="true"
+      [label]="'Huisnummer'"
+    ></textinput>
+    <textinput
+      [value]="model.zipCode"
+      [disabled]="true"
+      [label]="'Postcode'"
+    ></textinput>
+    <textinput
+      [value]="model.city"
+      [disabled]="true"
+      [label]="'Woonplaats'"
+    ></textinput>
+    <h2>Contactgegevens</h2>
+    <textinput
+      [value]="model.customerCode"
+      [disabled]="true"
+      [label]="'Klantnummer'"
+    ></textinput>
+    <textinput
+      [value]="model.email"
+      [disabled]="true"
+      [label]="'E-mailadres'"
+    ></textinput>
+    <textinput
+      [value]="model.mobileNumber"
+      [label]="'Mobiel telefoonnummer'"
+    ></textinput>
+    <textinput
+      [value]="model.phoneNumber"
+      [label]="'Telefoonnummer'"
+    ></textinput>
+  </div>
+  <div class="changepass">
+    <h2>Wijzig je wachtwoord</h2>
+    <input placeholder="Huidige wachtwoord" />
+    <input placeholder="Nieuwe wachtwoord" />
+    <input placeholder="Bevestig wachtwoord" />
+    <button class="changepassbtn">Verander wachtwoord</button>
+  </div>
 </div>
