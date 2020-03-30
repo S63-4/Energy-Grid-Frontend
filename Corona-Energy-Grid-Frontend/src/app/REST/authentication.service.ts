@@ -1,16 +1,18 @@
 import { Injectable } from "@angular/core";
 import { HttpHeaders, HttpClient, HttpResponse } from "@angular/common/http";
-import { Observable, of, BehaviorSubject } from "rxjs";
+import { Observable, of, BehaviorSubject, from } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 import { user } from "../domain/user";
 import { AppConfig } from "../app.config";
+import { CookieService } from "ngx-cookie-service"
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthenticationService {
   private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private cookieService: CookieService) {}
 
   /** GET login codes from the server */
   getLogin(clientnr: string, password: string) {
@@ -25,7 +27,8 @@ export class AuthenticationService {
         response => {
           var token = response.headers.get("Authorization");
           if (token) {
-            localStorage.setItem(AppConfig.LocalStorageKeys.TOKEN, token);
+            //localStorage.setItem(AppConfig.LocalStorageKeys.TOKEN, token);
+            this.cookieService.set('autorization-key', token);
           }
           this.isLoggedIn.next(!!token);
         },
@@ -42,7 +45,8 @@ export class AuthenticationService {
 
   //* Get authorization token */
   public getAuthorizationToken(): string {
-    return localStorage.getItem(AppConfig.LocalStorageKeys.TOKEN);
+    //return localStorage.getItem(AppConfig.LocalStorageKeys.TOKEN);
+    return this.cookieService.get('authorization-key');
   }
 
   //* Logout */
