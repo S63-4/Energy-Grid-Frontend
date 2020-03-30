@@ -1,11 +1,11 @@
-<nav class="navbar">
-  <ul>
-    <li>
-      <a routerLink="/">
-        <fa-icon [icon]="home"></fa-icon>
-      </a>
-    </li>
-    <ng-container *ngIf="loggedIn === true">
+<ng-container *ngIf="loggedIn === true">
+  <nav class="navbar">
+    <ul>
+      <li>
+        <a routerLink="/">
+          <fa-icon [icon]="home"></fa-icon>
+        </a>
+      </li>
 
       <li>
         <a routerLink="/dashboard">Dashboard</a>
@@ -13,7 +13,7 @@
       <li>
         <a routerLink="/myprofile">Mijn Profiel</a>
       </li>
-    </ng-container>
-  </ul>
-</nav>
+    </ul>
+  </nav>
+</ng-container>
 <router-outlet></router-outlet>

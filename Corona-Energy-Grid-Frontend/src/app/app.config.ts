@@ -3,7 +3,7 @@ export class AppConfig {
 
   static ApiUrls = {
     GETSTATUSFORPERIOD: "/status/status/getStatusForPeriod",
-    GETUSERPROFILE: "/UserController/profile"
+    GETUSERPROFILE: "/user/UserController/profile"
   };
   static LocalStorageKeys = {
     TOKEN: "token"
