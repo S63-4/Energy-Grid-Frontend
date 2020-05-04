@@ -20,9 +20,10 @@ steps:
     npm install -g @angular/cli
     npm install
     ng update --all --force
-    ng build --prod
+    ng build
   displayName: 'npm install and build'
 - script: |
+    ng build --prod
     cd  	Corona-Energy-Grid-Frontend
     docker build -t $(DOCKER_USER)/$(CI_PROJECT_NAME) .
     docker tag $(DOCKER_USER)/$(CI_PROJECT_NAME) $(DOCKER_USER)/$(CI_PROJECT_NAME):$(Build.SourceVersion)
