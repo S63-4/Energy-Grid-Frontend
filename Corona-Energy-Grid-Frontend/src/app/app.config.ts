@@ -1,6 +1,9 @@
 export class AppConfig {
-  static ApiBaseURL = "http://localhost:8762";
+   // static WebSocketBaseUrl = "http://localhost:9060/";
+   static WebSocketBaseUrl = "http://34.105.162.130:9060/";
 
+   // static ApiBaseURL = "http://localhost:8762";
+   static ApiBaseURL = "http://35.189.86.8";
   static ApiUrls = {
     GETSTATUSFORPERIOD: "/status/status/getStatusForPeriod",
     GETUSERPROFILE: "/user/UserController/profile"
