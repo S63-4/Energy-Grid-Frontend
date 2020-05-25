@@ -13,11 +13,11 @@ export class RegisterComponent implements OnInit {
   customerCode: number;
   email: string;
   password: string;
-
+  privacyConfirm: string;
+  
   newuser: user;
 
   passwordConfirm: string;
-  result: string;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService) { }
@@ -27,16 +27,22 @@ export class RegisterComponent implements OnInit {
 
   register(): void {
       this.newuser = new user(this.customerCode, this.email, this.password);
-      if (this.password === this.passwordConfirm) {
-        this.authenticationService.postRegister(this.newuser).subscribe(
-          result => {
-            if (result === 'saved') {
-              this.router.navigate(['dashboard']);
+      if (this.privacyConfirm == null){
+        alert('Please read and accept the privacy policy!');
+      }
+      else{
+        if (this.password === this.passwordConfirm) {
+          console.log(this.privacyConfirm);
+          this.authenticationService.postRegister(this.newuser).subscribe(
+            result => {
+              if (result === 'saved') {
+                this.router.navigate(['dashboard']);
+              }
             }
-          }
-        );
-      } else {
-        alert('Make sure passwords match.');
+          );
+        } else {
+          alert('Make sure passwords match.');
+        }
       }
   }
 }

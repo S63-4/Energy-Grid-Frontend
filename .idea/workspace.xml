@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1092170-3fe4-4d52-86bc-2162345a0358" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Hackaton-Frontend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/REST/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/REST/authentication.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/dashboard/dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/domain/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/domain/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/localdata/shared-data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/localdata/shared-data.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/models/dashboard-data-point.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/models/dashboard-data-point.model.ts" afterDir="false" />
+    <list default="true" id="983e0802-6eeb-4223-90d8-8130604cd7f3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/register/register.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/routing/routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/src/app/routing/routing.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZFXGS6ve85nen0L7Gbx4Tttw6x" />
@@ -43,6 +38,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/Corona-Energy-Grid-Frontend/node_modules/typescript/lib" />
   </component>
@@ -68,6 +64,26 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="71" key="#TSLint" timestamp="1590394121961">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#TSLint/0.0.1536.824@0.0.1536.824" timestamp="1590394121961" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1590391652388">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590391652388" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1590391652388">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590391652388" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1590391652388">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590391652388" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1590391652388">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590391652388" />
     <state x="221" y="74" key="SettingsEditor" timestamp="1584435804638">
       <screen x="0" y="23" width="1440" height="825" />
     </state>
