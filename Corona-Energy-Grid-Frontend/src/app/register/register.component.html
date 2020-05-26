@@ -7,14 +7,13 @@
     <form class="example-form">
       <input
         type="text"
-        placeholder="Client Number"
+        placeholder="Customer Code"
         [(ngModel)]="customerCode"
         id="customerCode"
         name="customerCode"
         [value]="customerCode"
         required
       />
-
       <input
         type="text"
         placeholder="Email address"
@@ -36,14 +35,25 @@
       />
 
       <input
-        type="password"
+      type="password"
+      placeholder="Confirmation password"
+      [(ngModel)]="passwordConfirm"
+      id="passwordConfirm"
+      name="passwordConfirm"
+      [value]="passwordConfirm"
+      required
+    />
+
+      <input
+        type="checkbox"
         placeholder="Confirmation password"
-        [(ngModel)]="passwordConfirm"
-        id="passwordConfirm"
-        name="passwordConfirm"
-        [value]="passwordConfirm"
+        [(ngModel)]="privacyConfirm"
+        id="privacyConfirm"
+        name="privacyConfirm"
+        [value]="privacyConfirm"
         required
       />
+        <p>Accept <a href="">privacy policy</a></p>
     </form>
     <button class="register-button"(click)="register()">Register</button>
   </div>
