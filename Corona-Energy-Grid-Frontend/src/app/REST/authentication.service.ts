@@ -28,7 +28,7 @@ export class AuthenticationService {
           var token = response.headers.get("Authorization");
           if (token) {
             //localStorage.setItem(AppConfig.LocalStorageKeys.TOKEN, token);
-            this.cookieService.set('autorization-key', token);
+            this.cookieService.set('authorization-key', token);
           }
           this.isLoggedIn.next(!!token);
         },
