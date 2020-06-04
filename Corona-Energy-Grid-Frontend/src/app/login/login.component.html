@@ -7,11 +7,11 @@
     <form class="example-form">
       <input
         type="text"
-        placeholder="Customernumber"
-        [(ngModel)]="clientNr"
-        id="clientNr"
-        name="clientNr"
-        [value]="clientNr"
+        placeholder="email address"
+        [(ngModel)]="emailAddress"
+        id="emailAddress"
+        name="emailAddress"
+        [value]="emailAddress"
         required
       />
       <input
@@ -29,7 +29,7 @@
   <button class="login-button" (click)="login()">Login</button>
 
   <p class="registertext">
-    Don't have an account yet? Click
-    <a (click)="register()" class="here">here</a> to register.
+    Don't have an account yet?
+    <a (click)="register()" class="here">Click here</a> to register.
   </p>
 </div>

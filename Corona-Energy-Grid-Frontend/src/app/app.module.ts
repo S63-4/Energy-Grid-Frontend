@@ -49,7 +49,7 @@ import { httpInterceptors } from "./REST/http-interceptors/interceptors";
     ChartsModule,
     FontAwesomeModule
   ],
-  providers: [Authentication, httpInterceptors, CookieService],
+  providers: [Authentication, httpInterceptors, CookieService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
