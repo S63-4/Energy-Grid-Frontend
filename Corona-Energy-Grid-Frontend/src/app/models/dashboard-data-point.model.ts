@@ -10,22 +10,26 @@ export class DashboardModel {
 export class DashboardDataPoint {
     consumption: number;
     production: number;
-    label: string;
+    name: string;
+    dateTime: Date;
     constructor(obj: DashboardDataPointData = {} as DashboardDataPoint) {
         const {
             consumption = 0,
             production = 0,
-            label = null
+            name = null,
+            dateTime = null
         } = obj
         this.consumption = consumption;
-        this.label = label;
+        this.name = name;
         this.production = production;
+        this.dateTime = dateTime;
     }
 }
 interface DashboardDataPointData {
     consumption: number;
     production: number;
-    label: string;
+    name: string;
+    dateTime : Date;
 }
 interface DashboardModelData {
     data: Array<DashboardDataPoint>;
