@@ -144,8 +144,8 @@ export class DashboardComponent implements OnInit {
     this.cdRef.detectChanges();
     var data = this.data.filter(
       (d) =>
-        new Date(d.dateTime).toLocaleDateString() ===
-        new Date(date).toLocaleDateString()
+        new Date(d.dateTime).toDateString() ===
+        new Date(date).toDateString()
     );
     data = this.sortHours(data).sort((a, b) => {
       return new Date(a.dateTime).getHours() - new Date(b.dateTime).getHours();
@@ -190,7 +190,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getDateString(date: Date): string {
-    return new Date(date).toLocaleDateString();
+    return new Date(date).toDateString();
   }
   getStartDate(diff: number): string {
     switch (this.selectedFilter) {
