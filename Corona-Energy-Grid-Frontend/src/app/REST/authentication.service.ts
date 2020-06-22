@@ -12,7 +12,10 @@ import { CookieService } from "ngx-cookie-service"
 export class AuthenticationService {
   private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor(private http: HttpClient,
-    private cookieService: CookieService) {}
+    private cookieService: CookieService) {
+      var token = this.cookieService.get("authorization-key");
+      this.isLoggedIn.next(!!token);
+    }
 
   /** GET login codes from the server */
   getLogin(clientnr: string, password: string) {

@@ -1,16 +1,9 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  ViewChildren,
-  QueryList,
-  Renderer2,
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { DashboardDataPoint } from "../models/dashboard-data-point.model";
 import { Chart } from "chart.js";
 import { HttpClient } from "@angular/common/http";
 import { AppConfig } from "../app.config";
+import * as moment from "moment";
 
 @Component({
   selector: "app-dashboard",
@@ -117,7 +110,8 @@ export class DashboardComponent implements OnInit {
       case StatusPeriod.MONTH:
         var date = new Date();
         var firstDay = new Date(date.getFullYear(), date.getMonth() - diff, 1);
-        return firstDay.toISOString();
+        var isoString = moment(firstDay).toISOString(true);
+        return isoString.split("+")[0];
     }
   }
   getEndDate(diff: number): string {
@@ -129,7 +123,8 @@ export class DashboardComponent implements OnInit {
           date.getMonth() + 1 - diff,
           0
         );
-        return lastDay.toISOString();
+        var isoString = moment(lastDay).toISOString(true);
+        return isoString.split("+")[0];
     }
   }
   switch(diff: number) {
