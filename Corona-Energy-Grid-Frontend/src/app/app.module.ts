@@ -23,6 +23,7 @@ import { MyprofileComponent } from "./myprofile/myprofile.component";
 import { TextinputComponent } from "./custom-components/textinput/textinput.component";
 import { Authentication } from "./app-routing-guards";
 import { httpInterceptors } from "./REST/http-interceptors/interceptors";
+import { DateFormatPipe } from './dashboard/datepipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,7 @@ import { httpInterceptors } from "./REST/http-interceptors/interceptors";
     ChartsModule,
     FontAwesomeModule
   ],
-  providers: [Authentication, httpInterceptors, CookieService, HttpClient],
+  providers: [Authentication, httpInterceptors, CookieService, HttpClient, DateFormatPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

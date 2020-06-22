@@ -4,6 +4,7 @@ import { Chart } from "chart.js";
 import { HttpClient } from "@angular/common/http";
 import { AppConfig } from "../app.config";
 import * as moment from "moment";
+import { DateFormatPipe } from "./datepipe";
 
 @Component({
   selector: "app-dashboard",
@@ -26,7 +27,11 @@ export class DashboardComponent implements OnInit {
   //Filter
   selectedFilter: number = StatusPeriod.MONTH;
 
-  constructor(private http: HttpClient, private cdRef: ChangeDetectorRef) {}
+  constructor(
+    private http: HttpClient,
+    private cdRef: ChangeDetectorRef,
+    private datePipe: DateFormatPipe
+  ) {}
   ngOnInit(): void {
     this.updateCharts();
   }
@@ -190,6 +195,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getDateString(date: Date): string {
+    return this.datePipe.transform(date);
     return new Date(date).toLocaleDateString();
   }
   getStartDate(diff: number): string {
