@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { DashboardDataPoint } from "../models/dashboard-data-point.model";
 import { Chart } from "chart.js";
 import { HttpClient } from "@angular/common/http";
@@ -19,11 +19,14 @@ export class DashboardComponent implements OnInit {
   chartData: ChartModel[] = [];
   labels: string[] = [];
   chart: Chart;
+  hourChart: Chart;
   diff: number = 0;
+  data: Array<DashboardDataPoint>;
+  hours: boolean = true;
   //Filter
   selectedFilter: number = StatusPeriod.MONTH;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cdRef: ChangeDetectorRef) {}
   ngOnInit(): void {
     this.updateCharts();
   }
@@ -49,12 +52,14 @@ export class DashboardComponent implements OnInit {
           )}`
       )
       .subscribe((data: Array<DashboardDataPoint>) => {
+        console.log(data);
+        this.data = data;
         var sortedData = this.sort(data);
         let consumption: ChartModel = new ChartModel("Consumptie");
         consumption.backgroundColor = "rgba(255,0,0, 0.8)";
         let production: ChartModel = new ChartModel("Productie");
         production.backgroundColor = "rgba(0, 255, 0, 0.8)";
-        data.forEach((datapoint) => {
+        sortedData.forEach((datapoint) => {
           consumption.data.push(datapoint.consumption);
           production.data.push(datapoint.production);
           this.labels.push(this.getDateString(datapoint.dateTime));
@@ -84,26 +89,108 @@ export class DashboardComponent implements OnInit {
             },
           },
         });
+        var self = this;
+        this.chart.options.onClick = function (evt) {
+          var activeElement: any = this.chart.getElementAtEvent(evt);
+          var dateString = activeElement[0]._model.label;
+          var dateStringArray = dateString.split("-");
+          var date = new Date();
+          date.setDate(Number.parseInt(dateStringArray[0]));
+          date.setMonth(Number.parseInt(dateStringArray[1]) - 1);
+          date.setFullYear(Number.parseInt(dateStringArray[2]));
+
+          self.initHourChart(date);
+        };
       });
   }
+
   sort(data: Array<DashboardDataPoint>): Array<DashboardDataPoint> {
     var sortedData: Array<DashboardDataPoint> = [];
-    for (let index = 1; index === 31; index++) {
+    for (let index = 1; index < 32; index++) {
       const dataPoint = new DashboardDataPoint();
-      const elements = data.filter((d) => d.dateTime.getDate() === index);
-      if (elements) {
+      const elements = data.filter(
+        (d) => new Date(d.dateTime).getDate() === index
+      );
+
+      if (elements && elements.length > 0) {
         dataPoint.dateTime = elements[0].dateTime;
         elements.forEach((e) => {
           dataPoint.consumption += e.consumption;
           dataPoint.production += e.production;
         });
+        sortedData.push(dataPoint);
       }
-      sortedData.push(dataPoint);
     }
+
     return sortedData;
   }
+  sortHours(data: Array<DashboardDataPoint>): Array<DashboardDataPoint> {
+    var sortedData: Array<DashboardDataPoint> = [];
+    data.sort((a, b) => {
+      if (new Date(a.dateTime).getHours() === new Date(b.dateTime).getHours()) {
+        b.consumption += a.consumption;
+        b.production += a.production;
+      } else {
+        sortedData.push(a);
+      }
+      return 0;
+    });
+    return sortedData;
+  }
+  initHourChart(date: Date): void {
+    this.hours = false;
+    this.cdRef.detectChanges();
+    this.hours = true;
+    this.cdRef.detectChanges();
+    var data = this.data.filter(
+      (d) =>
+        new Date(d.dateTime).toLocaleDateString() ===
+        new Date(date).toLocaleDateString()
+    );
+    data = this.sortHours(data).sort((a, b) => {
+      return new Date(a.dateTime).getHours() - new Date(b.dateTime).getHours();
+    });
+    var chartData: ChartModel[] = [];
+    let consumption: ChartModel = new ChartModel("Consumptie");
+    consumption.backgroundColor = "rgba(255,0,0, 0.8)";
+    let production: ChartModel = new ChartModel("Productie");
+    production.backgroundColor = "rgba(0, 255, 0, 0.8)";
+    data.forEach((d) => {
+      consumption.data.push(d.consumption);
+      production.data.push(d.production);
+    });
+    chartData.push(consumption, production);
+    if (this.hourChart) this.hourChart.destroy();
+    let dashboard = document.getElementById("hourchart") as HTMLCanvasElement;
+    const context = dashboard.getContext("2d");
+    context.clearRect(0, 0, dashboard.width, dashboard.height);
+    this.chart = new Chart(dashboard, {
+      type: "bar",
+      data: {
+        labels: data.map((d) => {
+          {
+            return `${new Date(d.dateTime).getHours()}:00`;
+          }
+        }),
+        datasets: chartData,
+      },
+      options: {
+        responsive: false,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+  }
+
   getDateString(date: Date): string {
-    return date.toLocaleDateString();
+    return new Date(date).toLocaleDateString();
   }
   getStartDate(diff: number): string {
     switch (this.selectedFilter) {

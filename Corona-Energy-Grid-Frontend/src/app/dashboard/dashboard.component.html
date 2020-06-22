@@ -1,14 +1,15 @@
-<div>
-  <div id="dashboard-chart">
+<div class="chart-container">
+  <div id="dashboard-chart" class="col-md-6">
     <h2 class="title">Verbruik in kWh</h2>
     <div style="display: block;">
       <canvas id="chart" height="350" width="700"> </canvas>
     </div>
-    <!-- <div class="dashboard-filter-container">
-            <div class="dashboard-filter">
-                 <div [ngClass]="selectedFilter === 1 ? 'checked' : ''" (click)="changeFilter(1)">Week</div> 
-                <div [ngClass]="selectedFilter === 2 ? 'checked' : ''" (click)="changeFilter(2)">Maand</div>
-            </div>
-        </div> -->
+  </div>
+
+  <div id="dashboard-hour-chart" *ngIf="hours" class="col-md-6">
+    <h2 class="title">Verbruik per uur</h2>
+    <div style="display: block;">
+      <canvas id="hourchart" height="350" width="700"> </canvas>
+    </div>
   </div>
 </div>
