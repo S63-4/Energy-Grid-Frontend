@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
   title = "Corona Energy Grid";
@@ -20,10 +20,11 @@ export class AppComponent {
   }
 
   subscribeEvents(): void {
-    this.authService.loggedIn().subscribe(loggedIn => {
+    this.authService.loggedIn().subscribe((loggedIn) => {
       this.loggedIn = loggedIn;
 
       if (loggedIn) {
+        console.log("ingelogd");
         this.router.navigateByUrl("/dashboard");
       } else {
         localStorage.removeItem(AppConfig.LocalStorageKeys.TOKEN);

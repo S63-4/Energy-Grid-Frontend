@@ -5,7 +5,7 @@ export class AppConfig {
   //static ApiBaseURL = "http://localhost:8762";
   static ApiBaseURL = "http://35.189.86.8";
   static ApiUrls = {
-    GETSTATUSFORPERIOD: "/status/customer-hour",
+    GETSTATUSFORPERIOD: "/status/status/customer-hour",
     GETUSERPROFILE: "/user/customer/profile",
   };
   static LocalStorageKeys = {
